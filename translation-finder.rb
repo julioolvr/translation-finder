@@ -13,7 +13,7 @@ translator = MicrosoftTranslator::Client.new(ENV['MICROSOFT_CLIENT_ID'], ENV['MI
 total_words = 0
 found_words = []
 
-words_file.each_slice(100).with_index do |words|
+words_file.each_slice(100) do |words|
   valid_words = words.select{ |word| word =~ from_regex }.map(&:strip)
 
   next if valid_words.empty?
